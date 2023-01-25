@@ -1,30 +1,43 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 func main() {
 
-	workArray := [10]uint8{}
-	outputStr := ""
+	var workArray [10]uint
+	var outputStr string
+	var number uint
+	var c uint
+
+	// считываем числа с ввода и добавляем в массив
 	for i := 0; i < 10; i++ {
-		var number uint8
 		fmt.Scan(&number)
 		workArray[i] = number
 	}
 
+	// считываем индексы массива с входа и переставляем значения в массиве попарно
 	for i := 0; i < 3; i++ {
-		for j := 0; j < 1; j++ {
-			var a uint8
-			var b uint8
-			fmt.Scan(&a, &b)
-			workArray[a], workArray[b] = workArray[b], workArray[a]
-			// outputStr += fmt.Sprintf("%d ", "%d ", b, a)
-
-		}
+		var a uint
+		var b uint
+		fmt.Scan(&a, &b)
+		workArray[a], workArray[b] = workArray[b], workArray[a]
 	}
 
+	// добавляем значения массива в строку
 	for _, v := range workArray {
 		outputStr += fmt.Sprintf("%d ", v)
 	}
+
 	fmt.Print(outputStr)
+
+	//  проверяем соответствует ли тип значений массива заявленому типу
+	if reflect.TypeOf(number) == reflect.TypeOf(c) {
+		fmt.Println(" Type OK")
+	} else {
+		fmt.Println(" Type Not OK")
+	}
+
 }
