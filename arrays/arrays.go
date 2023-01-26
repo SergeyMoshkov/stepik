@@ -6,7 +6,6 @@ import (
 )
 
 func main() {
-
 	var workArray [10]uint
 	var outputStr string
 	var number uint
@@ -39,5 +38,9 @@ func main() {
 	} else {
 		fmt.Println(" Type Not OK")
 	}
+
+	Slice()
+
+	fmt.Scan(&c)
 
 }
